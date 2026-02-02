@@ -1,0 +1,9 @@
+version: 1.0.0
+metadata:
+  name: SalesService
+  slug: sales-service
+
+grpc:
+  main:
+    files: [src/contracts/grpc/sales.proto]
+    port: 5000

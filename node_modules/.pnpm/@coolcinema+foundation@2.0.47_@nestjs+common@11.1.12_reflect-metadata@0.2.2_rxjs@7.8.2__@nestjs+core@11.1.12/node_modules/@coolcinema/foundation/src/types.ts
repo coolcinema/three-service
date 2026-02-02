@@ -1,0 +1,12 @@
+export interface IRegistry {
+  services: Record<string, any>;
+  infrastructure: {
+    rabbitmq: {
+      uri: string;
+      exchanges?: string[];
+    };
+    jaeger?: {
+      endpoint: string;
+    };
+  };
+}

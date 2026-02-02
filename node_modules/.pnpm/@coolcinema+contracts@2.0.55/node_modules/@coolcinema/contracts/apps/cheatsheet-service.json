@@ -1,0 +1,24 @@
+{
+  "fullnameOverride": "cheatsheet-service",
+  "image": {
+    "repository": "ghcr.io/coolcinema/cheatsheet-service"
+  },
+  "service": {
+    "ports": [
+      {
+        "name": "http-web",
+        "port": 5000,
+        "protocol": "TCP"
+      }
+    ]
+  },
+  "ingress": [
+    {
+      "name": "web",
+      "port": 5000,
+      "host": "cheatsheet.coolcinema.local",
+      "path": "/"
+    }
+  ],
+  "env": {}
+}

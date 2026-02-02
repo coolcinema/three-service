@@ -1,0 +1,18 @@
+syntax = "proto3";
+package coolcinema.gateway.events;
+option go_package = "coolcinema/gateway/events";
+
+import "google/protobuf/empty.proto";
+
+service GatewayEvents {
+  // Событие продажи билета
+  rpc TicketSold (TicketSoldEvt) returns (google.protobuf.Empty);
+}
+
+message TicketSoldEvt {
+  string ticket_id = 1;
+  string user_id = 2;
+  string showtime_id = 3;
+  double price = 4;
+  // string test = 5;
+}

@@ -1,0 +1,17 @@
+{
+  "fullnameOverride": "sales-service",
+  "image": {
+    "repository": "ghcr.io/coolcinema/sales-service"
+  },
+  "service": {
+    "ports": [
+      {
+        "name": "grpc",
+        "port": 5000,
+        "protocol": "TCP"
+      }
+    ]
+  },
+  "ingress": [],
+  "env": {}
+}

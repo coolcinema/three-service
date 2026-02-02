@@ -1,0 +1,76 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1. Вычисляем короткий SHA (7 символов) для тега
+      - name: Get Short SHA
+        id: slug
+        run: echo "sha8=$(echo ${GITHUB_SHA} | cut -c1-8)" >> $GITHUB_OUTPUT
+
+      - name: Log in to Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.CI_PAT }}
+
+      # 2. Собираем и пушим с ДВУМЯ тегами: latest и sha-xxxxxxx
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ steps.slug.outputs.sha8 }}
+          secrets: |
+            npm_token=${{ secrets.CI_PAT }}
+
+      # 3. Обновляем репозиторий инфраструктуры (GitOps)
+      - name: Update Infra Repo
+        uses: actions/checkout@v4
+        with:
+          repository: coolcinema/infra-k8s
+          token: ${{ secrets.CI_PAT }} # Нужен токен с правами записи в infra-k8s
+          path: infra-k8s
+
+      - name: Update Image Tag in Helm Values
+        working-directory: infra-k8s
+        run: |
+          # Имя сервиса из репозитория (coolcinema/identity-service -> identity-service)
+          SERVICE_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2)
+          VALUES_FILE="apps/$SERVICE_NAME/values.yaml"
+          NEW_TAG="sha-${{ steps.slug.outputs.sha8 }}"
+
+          # Создаем папку, если нет
+          mkdir -p apps/$SERVICE_NAME
+
+          # Создаем или обновляем файл (используем printf для простоты вместо yq)
+          # Это перезапишет файл, сохранив только tag. Если нужны другие настройки - используйте yq.
+          echo "image:" > $VALUES_FILE
+          echo "  tag: $NEW_TAG" >> $VALUES_FILE
+
+          # Настройка Git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Коммит и Пуш
+          git add $VALUES_FILE
+          git commit -m "deploy($SERVICE_NAME): update tag to $NEW_TAG" || echo "No changes"
+          git push

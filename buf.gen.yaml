@@ -1,0 +1,15 @@
+version: v1
+plugins:
+  # gRPC & Events
+  - plugin: ts-proto
+    out: src/_gen/grpc
+    opt:
+      - outputServices=nice-grpc
+      - outputServices=generic-definitions
+      - useExactTypes=false
+      - esModuleInterop=true
+    path: ./node_modules/.bin/protoc-gen-ts_proto
+
+  # HTTP (OpenAPI v3.0)
+  - plugin: buf.build/community/google-gnostic-openapi
+    out: src/_gen/http-spec

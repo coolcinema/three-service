@@ -1,0 +1,17 @@
+syntax = "proto3";
+package coolcinema.identity.rpc;
+option go_package = "coolcinema/identity/rpc";
+
+service IdentityService {
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserResponse {
+  string id = 1;
+  string email = 2;
+  bool is_active = 3;
+}

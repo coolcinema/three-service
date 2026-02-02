@@ -1,0 +1,6 @@
+version: v1
+directories:
+  - src/contracts
+  - node_modules/@coolcinema/contracts/protos
+  - node_modules/@coolcinema/contracts/events
+  - node_modules/@coolcinema/contracts/schemas
