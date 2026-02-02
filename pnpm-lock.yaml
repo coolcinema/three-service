@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@bufbuild/protobuf':
+        specifier: ^2.11.0
+        version: 2.11.0
       '@coolcinema/cli':
         specifier: ^4.0.34
         version: 4.0.34
@@ -26,6 +29,9 @@ importers:
       '@nestjs/microservices':
         specifier: ^11.1.12
         version: 11.1.12(@grpc/grpc-js@1.14.3)(@nestjs/common@11.1.12(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(amqp-connection-manager@5.0.0(amqplib@0.10.9))(amqplib@0.10.9)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      add:
+        specifier: ^2.0.6
+        version: 2.0.6
       long:
         specifier: ^5.3.2
         version: 5.3.2
@@ -38,6 +44,9 @@ importers:
       nice-grpc-server-reflection:
         specifier: ^3.0.3
         version: 3.0.3
+      pnpm:
+        specifier: ^10.28.2
+        version: 10.28.2
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -1091,6 +1100,9 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  add@2.0.6:
+    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
+
   agent-base@7.1.4:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
     engines: {node: '>= 14'}
@@ -1387,6 +1399,11 @@ packages:
   pluralize@8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
+
+  pnpm@10.28.2:
+    resolution: {integrity: sha512-QYcvA3rSL3NI47Heu69+hnz9RI8nJtnPdMCPGVB8MdLI56EVJbmD/rwt9kC1Q43uYCPrsfhO1DzC1lTSvDJiZA==}
+    engines: {node: '>=18.12'}
+    hasBin: true
 
   postgres-array@2.0.0:
     resolution: {integrity: sha512-VpZrUqU5A69eQyW2c5CA1jtLecCsN2U/bD6VilrFDWq5+5UIEVO7nazS3TEcHf1zuPYO/sqGvUvW62g86RXZuA==}
@@ -2732,6 +2749,8 @@ snapshots:
 
   acorn@8.15.0: {}
 
+  add@2.0.6: {}
+
   agent-base@7.1.4: {}
 
   amqp-connection-manager@5.0.0(amqplib@0.10.9):
@@ -3024,6 +3043,8 @@ snapshots:
   picocolors@1.1.1: {}
 
   pluralize@8.0.0: {}
+
+  pnpm@10.28.2: {}
 
   postgres-array@2.0.0: {}
 
