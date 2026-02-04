@@ -10,7 +10,7 @@ async function main() {
   server.add(ThreeServiceDefinition, new ThreeServiceImpl());
 
   const serviceDef = Registry.services["three"];
-  const port = 5002;
+  const port = 5000;
 
   await server.listen(`0.0.0.0:${port}`);
   console.log(`🚀 Three Service listening on port ${port}`);
