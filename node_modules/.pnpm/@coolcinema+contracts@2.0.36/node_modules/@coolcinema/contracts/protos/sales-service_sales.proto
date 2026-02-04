@@ -1,9 +1,0 @@
-syntax = "proto3";
-package coolcinema.sales;
-
-service SalesService {
-  rpc GetPrice (GetPriceRequest) returns (GetPriceResponse);
-}
-
-message GetPriceRequest { string showtime_id = 1; }
-message GetPriceResponse { int32 amount = 1; string currency = 2; }
