@@ -15,8 +15,8 @@ importers:
         specifier: ^4.0.34
         version: 4.0.34
       '@coolcinema/contracts':
-        specifier: ^2.0.55
-        version: 2.0.55
+        specifier: ^2.0.60
+        version: 2.0.60
       '@coolcinema/foundation':
         specifier: ^2.0.47
         version: 2.0.47(@nestjs/common@11.1.12(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)
@@ -140,8 +140,8 @@ packages:
     resolution: {integrity: sha512-3HeXit3LIqScRNZkCEEpYm6Rxmy+aNbIuqAjjPyZRtek4NxEDP3XDnE4NwRMXhJrJtRBtwW8g8WDf0/3+rvbyQ==, tarball: https://npm.pkg.github.com/download/@coolcinema/cli/4.0.34/87e57c5374d1d4da817270ef9459a85c87cbc0ab}
     hasBin: true
 
-  '@coolcinema/contracts@2.0.55':
-    resolution: {integrity: sha512-PPvtIsS06/ZFVfPkjm2tj5iNnzNCEccHF8Gza3XEs7sdqCuoKGyzSfzQ7Mo1PST6tBZ9MREiBBh5RrfCWWHOxg==, tarball: https://npm.pkg.github.com/download/@coolcinema/contracts/2.0.55/ce382efdb78d47c2b4e814ff873b2a7d317104b4}
+  '@coolcinema/contracts@2.0.60':
+    resolution: {integrity: sha512-DJADylVpBYXk1VrDLNsioAZwbFz/+E9zMJBxugdI4SWMT33Yl+cEBpI54Uj4NHrm8IapvEp+zoIF3sJpVMmZCA==, tarball: https://npm.pkg.github.com/download/@coolcinema/contracts/2.0.60/91405bd9db1b02eda6868c79fd969c89ed095fcd}
 
   '@coolcinema/foundation@2.0.47':
     resolution: {integrity: sha512-JTqH5Ba3e/626xxWpONoHPDEPKVDt+C/XDWLVfbBrW4UYGPpYIdqytqAAcEGbNsiyvSCtrc2Akr9AeHzMWtKRA==, tarball: https://npm.pkg.github.com/download/@coolcinema/foundation/2.0.47/8c87a45ed0a8d5ce50d5f9cd6915fbe38d6d923b}
@@ -1638,7 +1638,7 @@ snapshots:
       js-yaml: 4.1.1
       zod: 4.3.6
 
-  '@coolcinema/contracts@2.0.55': {}
+  '@coolcinema/contracts@2.0.60': {}
 
   '@coolcinema/foundation@2.0.47(@nestjs/common@11.1.12(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)':
     dependencies:

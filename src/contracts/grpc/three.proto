@@ -1,8 +1,8 @@
 syntax = "proto3";
-package coolcinema.sales.rpc;
-option go_package = "coolcinema/sales/rpc";
+package coolcinema.three.rpc;
+option go_package = "coolcinema/three/rpc";
 
-service SalesService {
+service ThreeService {
   rpc CalculatePrice (CalculatePriceRequest) returns (CalculatePriceResponse);
 }
 

@@ -1,9 +1,9 @@
 version: 1.0.0
 metadata:
-  name: SalesService
-  slug: sales-service
+  name: ThreeService
+  slug: three-service
 
 grpc:
   main:
-    files: [src/contracts/grpc/sales.proto]
+    files: [src/contracts/grpc/three.proto]
     port: 5000

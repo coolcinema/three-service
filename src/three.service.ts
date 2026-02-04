@@ -1,14 +1,14 @@
 import {
-  SalesServiceImplementation,
+  ThreeServiceImplementation,
   CalculatePriceRequest,
   CalculatePriceResponse,
-} from "./_gen/grpc/grpc/sales";
+} from "./_gen/grpc/grpc/three";
 
-export class SalesServiceImpl implements SalesServiceImplementation {
+export class ThreeServiceImpl implements ThreeServiceImplementation {
   async calculatePrice(
     request: CalculatePriceRequest,
   ): Promise<CalculatePriceResponse> {
-    console.log(`[Sales] CalculatePrice for showtime: ${request.showtimeId}`);
+    console.log(`[Three] CalculatePrice for showtime: ${request.showtimeId}`);
     return {
       amount: 100.0,
       currency: "USD",
